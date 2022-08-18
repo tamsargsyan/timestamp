@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unix Timestamp</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script defer src="./index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Convert Unix to Human Date</h1>
+        <div class ="line"></div>
+        <div>
+            <button class="calculate">How to Calculate?</button>
+            <div class="modal hidden">
+                <button class="close-modal">&times;</button>
+                <h1>Calculate Timestamp</h1>
+                <p>
+                    Convert given seconds into days by dividing them by the number of seconds in a day (86400) and store the remaining second.
+                    Since we count the number of days since Jan 1, 1970. Therefore, to calculate the current year keeping the concept of leap years in mind. Start in 1970. If the year is a leap year subtract 366 from days, otherwise subtract 365. Increase year by 1.
+                    Repeat step 2 until days become less than 365 (can not constitute a year).
+                    Add 1 to remaining days (extra days after calculating year) because the remaining days will give us days till the previous day, and we have to include the current day for DATE and MONTH calculation.
+                    Increment the number of months by 1 and keep subtracting the number of days of the month from extra days (keeping in mind that February will have 29 days in a leap year and 28 otherwise).
+                    Repeat steps 5 until subtracting days of the month from extra days will give a negative result.
+                    If extra days are more than zero, increment month by 1.
+                    Now make use of the extra time from step 1.
+                    Calculate hours by dividing extra time by 3600, minutes by dividing the remaining seconds by 60, and seconds will be the remaining seconds.                
+                </p>
+              </div>
+              <div class="overlay hidden"></div>
+            </div>
+        <form action="">
+            <input type="text" class="timestamp-input"/>
+            <button class="submit">Human Date</button>
+            <select class="options">
+                <!-- <option value="0">GMT</option>
+                <option value="1">GMT+4</option> -->
+            </select>
+        </form>
+        <h1 class="format">MM/DD/YYYY HH:MM:SS</h1>
+        <div class="display-time"></div>
+    </div>
+    <div class="infos">
+        <h1 class="info info-title">What is the unix time stamp?</h1>
+        <p class="info">The unix time stamp is a way to track time as a running total of seconds. This count starts at the Unix Epoch on January 1st, 1970 at UTC. Therefore, the unix time stamp is merely the number of seconds between a particular date and the Unix Epoch. It should also be pointed out (thanks to the comments from visitors to this site) that this point in time technically does not change no matter where you are located on the globe. This is very useful to computer systems for tracking and sorting dated information in dynamic and distributed applications both online and client side.</p>
+        <table class="info">
+            <tr>
+                <th>Human-readable time 	</th>
+                <th>Seconds</th>
+            </tr>
+            <tr>
+                <td>1 hour</td>
+                <td>3600 seconds</td>
+            </tr>
+            <tr>
+                <td>1 day</td>
+                <td>86400 seconds</td>
+            </tr>
+            <tr>
+                <td>1 week</td>
+                <td>604800 seconds</td>
+            </tr>
+            <tr>
+                <td>1 month (30.44 days)</td>
+                <td>2629743 seconds</td>
+            </tr>
+            <tr>
+                <td>1 year (365.24 days)</td>
+                <td> 31556926 seconds</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
