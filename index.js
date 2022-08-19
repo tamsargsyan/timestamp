@@ -182,7 +182,7 @@ const timestampToHumanReadable = timestamp => {
         let currentYear, daysTillNow, extraTime, hours, minutes, seconds,
             extraDays, i, day, month, flag = 0;
  
-        // Calculate total days unix time T
+        // Calculate total days unix time
         daysTillNow = parseInt(timestamp / (24 * 60 * 60), 10);
         extraTime = timestamp % (24 * 60 * 60);
         currentYear = 1970;
@@ -213,7 +213,7 @@ const timestampToHumanReadable = timestamp => {
             currentYear % 100 != 0))
             flag = 1;
  
-        // Calculating MONTH and DATE
+        // Calculating month and date
         month = 0; i = 0;
         if (flag === 1)
         {
